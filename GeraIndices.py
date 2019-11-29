@@ -1,4 +1,7 @@
+from AvaliaX import AvaliaX
+
 def GeraIndices(X,BESTo,FOBESTo,DIo,MAT_INDo,SOMA,TOTAL,Fun):
+
   # def GeraIndices(X,BESTo,FOBESTo,DIo,MAT_INDo,SOMA,TOTAL):
   global fields, Go2Ann, Fc
   global syn0_F,syn1_F,X_max_F,X_min_F
