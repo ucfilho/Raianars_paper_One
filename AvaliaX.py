@@ -1,3 +1,5 @@
+import numpy as np
+
 def AvaliaX(X,fitness):
   # def AvaliaX(X):
   
