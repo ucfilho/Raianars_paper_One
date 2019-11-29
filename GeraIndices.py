@@ -95,7 +95,9 @@ def GeraIndices(X,BESTo,FOBESTo,DIo,MAT_INDo,SOMA,TOTAL,syn0_F,
   y_calc_CR=Go2Ann.ANN_ycal(syn0_CR,syn1_CR,x_train)
   y_cod_F=Go2Ann.Classifica(y_calc_F)
   y_cod_CR=Go2Ann.Classifica(y_calc_CR)
-
+  
+  print('y_cod_CR=',y_cod_CR,'y_cod_F=',y_cod_F)
+  
   Fd=DIr
   CRa=np.copy(CRo)
   Fa=np.copy(Fo)
