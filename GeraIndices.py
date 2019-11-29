@@ -12,7 +12,9 @@ def GeraIndices(X,BESTo,FOBESTo,DIo,MAT_INDo,SOMA,TOTAL,Fun):
 
   REF=0.1 # REFERENCIA DE DIFERENCAS ENTRE OS ELEMENTOS
   # XY,BEST_XY,BEST,FOBEST=AvaliaX(X)
-  XY,BEST_XY,BEST,FOBEST=AvaliaX(X,Fun)
+  Fitness = np.asarray([Fun(ind) for ind in X])
+  XY,BEST_XY,BEST,FOBEST=AvaliaX(X,Fitness)
+  #XY,BEST_XY,BEST,FOBEST=AvaliaX(X,Fun)
   soma=0
   for j in range(ncol):
     for i in range(nrow):
