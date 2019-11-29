@@ -6,7 +6,7 @@ from random import randint
 from scipy import optimize
 import pandas as pd
 
-import Function
+#import Function
 import de_soma_Insight
 import de_bounds_matriz
 
