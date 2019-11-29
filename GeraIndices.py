@@ -7,11 +7,7 @@ import numpy as np
 def GeraIndices(X,BESTo,FOBESTo,DIo,MAT_INDo,SOMA,TOTAL,syn0_F,
                 syn1_F,X_max_F,X_min_F,syn0_CR,syn1_CR,X_max_CR,
                 X_min_CR,Fc,fields,Fun):
-
-  # def GeraIndices(X,BESTo,FOBESTo,DIo,MAT_INDo,SOMA,TOTAL):
-  #global fields,  Fc #, Go2Ann
-  #global syn0_F,syn1_F,X_max_F,X_min_F
-  #global syn0_CR,syn1_CR,X_max_CR,X_min_CR
+  
   nrow,ncol=X.shape
   FOBESTm=1e99
   Fo=MAT_INDo[0,6]    # VALOR Fo   
@@ -20,10 +16,9 @@ def GeraIndices(X,BESTo,FOBESTo,DIo,MAT_INDo,SOMA,TOTAL,syn0_F,
   MAT_IND=np.zeros((1,QUANT))
 
   REF=0.1 # REFERENCIA DE DIFERENCAS ENTRE OS ELEMENTOS
-  # XY,BEST_XY,BEST,FOBEST=AvaliaX(X)
   Fitness = np.asarray([Fun(ind) for ind in X])
   XY,BEST_XY,BEST,FOBEST=AvaliaX(X,Fitness)
-  #XY,BEST_XY,BEST,FOBEST=AvaliaX(X,Fun)
+  
   soma=0
   for j in range(ncol):
     for i in range(nrow):
@@ -115,14 +110,8 @@ def GeraIndices(X,BESTo,FOBESTo,DIo,MAT_INDo,SOMA,TOTAL,syn0_F,
   else:
     CRo=CRo*(1-Fd);#CRo=CRo-Fc
   
-  if(CRo<Fc):
-    CRo=Fc
-  if(Fo<Fc):
-    Fo=Fc
-  if(CRo>1):
-    CRo=1
-  if(Fo>1):
-    Fo=1
+  if(CRo<Fc):CRo=Fc ;  if(Fo<Fc):Fo=Fc
+  if(CRo>1):CRo=1;   if(CRo< Fc): CRo=Fc
 
   CRo=(2*CRo+CRa)/3 # para suavizar
   Fo=(3*Fo+Fa)/4 # para suavizar
