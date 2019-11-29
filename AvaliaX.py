@@ -1,6 +1,5 @@
-import Fun
-
-def AvaliaX(X):
+def AvaliaX(X,Fun):
+  # def AvaliaX(X):
   
   nrow,ncol=X.shape
   fitness = np.asarray([Fun(ind) for ind in X])
