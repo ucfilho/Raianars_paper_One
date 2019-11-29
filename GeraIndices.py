@@ -90,7 +90,7 @@ def GeraIndices(X,BESTo,FOBESTo,DIo,MAT_INDo,SOMA,TOTAL,Fun):
   x_train=MAT_INDo[0,[1,2,6,7]]
   x_train=pd.DataFrame(x_train).T
 
-  nrow,ncol=ANN_F.shape
+  #nrow,ncol=ANN_F.shape
   x_train=Go2Ann.Normatiza(x_train,X_max_F,X_min_F)
   y_calc_F=Go2Ann.ANN_ycal(syn0_F,syn1_F,x_train)
   y_calc_CR=Go2Ann.ANN_ycal(syn0_CR,syn1_CR,x_train)
