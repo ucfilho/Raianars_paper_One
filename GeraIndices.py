@@ -1,11 +1,12 @@
 from AvaliaX import AvaliaX
+from Go2Ann import Go2Ann,
 import pandas as pd
 import numpy as np
 
 def GeraIndices(X,BESTo,FOBESTo,DIo,MAT_INDo,SOMA,TOTAL,Fun):
 
   # def GeraIndices(X,BESTo,FOBESTo,DIo,MAT_INDo,SOMA,TOTAL):
-  global fields, Go2Ann, Fc
+  global fields,  Fc #, Go2Ann
   global syn0_F,syn1_F,X_max_F,X_min_F
   global syn0_CR,syn1_CR,X_max_CR,X_min_CR
   nrow,ncol=X.shape
