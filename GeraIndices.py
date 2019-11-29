@@ -107,32 +107,20 @@ def GeraIndices(X,BESTo,FOBESTo,DIo,MAT_INDo,SOMA,TOTAL,syn0_F,
 
   if(y_cod_F>0):
     Fo=Fo*(1+Fd) #Fo=Fo+Fc
-    Fo=(3*Fo+Fa)/4 # para suavizar
-    if(Fo<Fa):
-      Fo=Fa+0.05
-    if(Fo<Fa): # conferir a necessidade de melhorar 
-      Fo=Fa+0.05
-  else:
+
+  if(y_cod_F<0):
     Fo=Fo*(1-Fd) #Fo=Fo-Fc
+  
+  Fo=(3*Fo+Fa)/4 # para suavizar
   
   if(y_cod_CR>0):
     CRo=CRo*(1+Fd) #CRo=CRo+Fc
-    CRo=(3*CRo+CRa)/4 # para suavizar
-    if(CRo<CRa):  # conferir a necessidade de melhorar 
-      CRo=CRa+0.05
-  else:
-    CRo=CRo*(1-Fd);#CRo=CRo-Fc
   
-  if(CRo<Fc):
-    CRo=(CRo+CRa)/2 # conferir a necessidade de melhorar
-  if(CRo> 1):
-    CRo=1
+  CRo=(3*CRo+CRa)/4 # para suavizar
 
-  if(Fo<Fc):
-    Fo=(Fa+Fo)/2  # conferir a necessidade de melhorar
-  if(Fo> 1):
-    Fo=1
-  
+  if(y_cod_CR<0):
+    CRo=CRo*(1-Fd);#CRo=CRo-Fc
+
   CRo=(2*CRo+CRa)/3 # para suavizar
   
   MAT_IND[0,15]=Fo # valor de F que sai da rede
