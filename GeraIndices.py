@@ -119,6 +119,10 @@ def GeraIndices(X,BESTo,FOBESTo,DIo,MAT_INDo,SOMA,TOTAL,syn0_F,
     CRo=Fc
   if(Fo<Fc):
     Fo=Fc
+  if(CRo>1):
+    CRo=1
+  if(Fo>1):
+    Fo=1
 
   CRo=(2*CRo+CRa)/3 # para suavizar
   Fo=(3*Fo+Fa)/4 # para suavizar
