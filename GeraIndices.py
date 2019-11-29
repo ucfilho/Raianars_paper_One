@@ -4,12 +4,13 @@ import Go2Ann
 import pandas as pd
 import numpy as np
 
-def GeraIndices(X,BESTo,FOBESTo,DIo,MAT_INDo,SOMA,TOTAL,syn0_F,syn1_F,X_max_F,X_min_F,Fun):
+def GeraIndices(X,BESTo,FOBESTo,DIo,MAT_INDo,SOMA,TOTAL,syn0_F,
+                syn1_F,X_max_F,X_min_F,syn0_CR,syn1_CR,X_max_CR,X_min_CR,Fun):
 
   # def GeraIndices(X,BESTo,FOBESTo,DIo,MAT_INDo,SOMA,TOTAL):
   global fields,  Fc #, Go2Ann
-  global syn0_F,syn1_F,X_max_F,X_min_F
-  global syn0_CR,syn1_CR,X_max_CR,X_min_CR
+  #global syn0_F,syn1_F,X_max_F,X_min_F
+  #global syn0_CR,syn1_CR,X_max_CR,X_min_CR
   nrow,ncol=X.shape
   FOBESTm=1e99
   Fo=MAT_INDo[0,6]    # VALOR Fo   
