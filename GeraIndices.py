@@ -1,5 +1,7 @@
 from AvaliaX import AvaliaX
 
+import numpy as np
+
 def GeraIndices(X,BESTo,FOBESTo,DIo,MAT_INDo,SOMA,TOTAL,Fun):
 
   # def GeraIndices(X,BESTo,FOBESTo,DIo,MAT_INDo,SOMA,TOTAL):
