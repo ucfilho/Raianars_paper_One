@@ -4,7 +4,7 @@ import Go2Ann
 import pandas as pd
 import numpy as np
 
-def GeraIndices(X,BESTo,FOBESTo,DIo,MAT_INDo,SOMA,TOTAL,Fun):
+def GeraIndices(X,BESTo,FOBESTo,DIo,MAT_INDo,SOMA,TOTAL,syn0_F,syn1_F,X_max_F,X_min_F,Fun):
 
   # def GeraIndices(X,BESTo,FOBESTo,DIo,MAT_INDo,SOMA,TOTAL):
   global fields,  Fc #, Go2Ann
