@@ -1,4 +1,5 @@
-def GeraIndices(X,BESTo,FOBESTo,DIo,MAT_INDo,SOMA,TOTAL):
+def GeraIndices(X,BESTo,FOBESTo,DIo,MAT_INDo,SOMA,TOTAL,Fun):
+  # def GeraIndices(X,BESTo,FOBESTo,DIo,MAT_INDo,SOMA,TOTAL):
   global fields, Go2Ann, Fc
   global syn0_F,syn1_F,X_max_F,X_min_F
   global syn0_CR,syn1_CR,X_max_CR,X_min_CR
@@ -10,8 +11,8 @@ def GeraIndices(X,BESTo,FOBESTo,DIo,MAT_INDo,SOMA,TOTAL):
   MAT_IND=np.zeros((1,QUANT))
 
   REF=0.1 # REFERENCIA DE DIFERENCAS ENTRE OS ELEMENTOS
-  
-  XY,BEST_XY,BEST,FOBEST=AvaliaX(X)
+  # XY,BEST_XY,BEST,FOBEST=AvaliaX(X)
+  XY,BEST_XY,BEST,FOBEST=AvaliaX(X,Fun)
   soma=0
   for j in range(ncol):
     for i in range(nrow):
