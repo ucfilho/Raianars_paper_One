@@ -1,5 +1,6 @@
 from AvaliaX import AvaliaX
-from Go2Ann import Go2Ann
+#from Go2Ann import Go2Ann
+import Go2Ann
 import pandas as pd
 import numpy as np
 
