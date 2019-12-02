@@ -98,6 +98,59 @@ def Intervalo(dim,fchoice):
     if(fchoice=='Six_hump_camel'):
         MAX=np.repeat(10,dim) # precisa trocar
         MIN=np.repeat(-10,dim) # precisa trocar
+      
+    ###########################################
+    # novas funcoes adicionadas em dez 02 2019 
+    ###########################################
+   
+    if(fchoice=='alpinen2'):
+        MAX=np.repeat(10,dim) 
+        MIN=np.repeat(0,dim)     
+      
+    if(fchoice=='Griewank'):
+        MAX=np.repeat(600,dim) 
+        MIN=np.repeat(-600,dim)     
+      
+    if(fchoice=='HappyCat'):
+        MAX=np.repeat(5,dim) 
+        MIN=np.repeat(-5,dim)     
+     
+    if(fchoice=='Periodic'):
+        MAX=np.repeat(2,dim) 
+        MIN=np.repeat(-2,dim)     
+      
+    if(fchoice=='Qing'):
+        MAX=np.repeat(500,dim) 
+        MIN=np.repeat(-500,dim)     
+      
+    if(fchoice=='ridge'):
+        MAX=np.repeat(2,dim) 
+        MIN=np.repeat(-2,dim)     
+      
+    if(fchoice=='Salomon'):
+        MAX=np.repeat(2,dim) 
+        MIN=np.repeat(-2,dim)     
+ 
+    if(fchoice=='Styblinskitank'):
+        MAX=np.repeat(5,dim) 
+        MIN=np.repeat(-5,dim)     
+   
+    if(fchoice=='Shubert'):
+        MAX=np.repeat(10,dim) 
+        MIN=np.repeat(-10,dim)     
+      
+    if(fchoice=='Shubert3'):
+        MAX=np.repeat(10,dim) 
+        MIN=np.repeat(-10,dim)     
+      
+    if(fchoice=='Zakharov'):
+        MAX=np.repeat(10,dim) 
+        MIN=np.repeat(-5,dim)     
+      
+    if(fchoice=='XinSheYang'):
+        pi2=2*np.pi
+        MAX=np.repeat(pi2,dim) 
+        MIN=np.repeat(-pi2,dim)     
 
 
     return MIN,MAX  #  MIN,MAX=Go2MinMax.Intervalo(dim,fchoice)
