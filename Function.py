@@ -134,3 +134,132 @@ def Six_hump_camel(x):
     return (4 - 2.1*x[0]**2 + (x[0]**4)/3)*x[0]**2 + x[0]*x[1]\
            + (-4 + 4*x[1]**2)*x[1]**2
 #fx=-1.0316 ; x=(+-0.0898,+-0.7126) x1 ∈ [-3, 3], x2 ∈ [-2, 2].
+
+############################################################################
+
+################################### Novas Funções 
+# funoces atualizadas em dez 02 2019
+# Implemented functions:
+# Alpine N2                   : multi     :    non-convex   
+# Griewank Function           : UNIMODAL  :    non-convex 
+# HappyCat function           : multi     :    non-convex 
+# Periodic function           : multi     :    non-convex 
+# Qing Function               : multi     :    non-convex 
+# Ridge function              : UNIMODAL  :    non-convex 
+# Salomon function            : multi     :    non-convex 
+# Styblinskitank function     : multi     :    non-convex 
+# Shubert function            : multi     :    non-convex 
+# Shubert3 function           : multi     :    non-convex 
+# Xin-She Yang N. 3 Function  : UNIMODAL  :    non-convex 
+# Zakharov Function           : UNIMODAL  :    convex
+
+def alpinen2(x):
+  prod=1
+  for i in x:
+    prod=prod*(i**0.5*np.sin(i))
+  return prod*(-1)
+
+def Griewank(x):
+  prod_cosx_i05=1
+  sumx1=0
+  sumx2=0
+  i=0
+  for k in x:
+    i=i+1
+    sumx1=sumx1+k
+    sumx2=sumx2+k*k
+    prod_cosx_i05=prod_cosx_i05*np.cos(k/(i**0.5))
+  return 1+sumx2/4000 - prod_cosx_i05
+
+def HappyCat(x): 
+    alpha=1. / 8
+    s = sum(x**2) 
+    return ((s - len(x))**2)**alpha + (s / 2 + sum(x)) / len(x) + 0.5
+
+def Periodic(x):
+  sumx2=0
+  sin2x=0
+  for i in x:
+    sumx2=sumx2+i**2
+    sin2x=sin2x+(np.sin(i))**2
+  return 1+sin2x-0.1*np.exp(-sumx2)
+
+def Qing(x):
+  sumx2_i_2=0
+  i=0
+  for k in x:
+    i=i+1
+    sumx2_i_2=sumx2_i_2+(k**2-i)**2
+  return sumx2_i_2
+
+def ridge(x):
+  soma=0
+  d=2
+  alpha=0.1
+  for i in x:
+    soma=soma+i**2
+  soma=soma-x[0]**2
+  return x[0]+d*soma**(alpha)
+
+def Salomon(x):
+  sumx2=0
+  sqrtsx2=0
+  for i in x:
+    sumx2=sumx2+i**2
+  sqrtsx2=sumx2**0.5
+
+  return 1-np.cos(2*np.pi*sqrtsx2)+(0.1 * sqrtsx2)
+
+def Styblinskitank(x):
+  sumx1=0
+  sumx2=0
+  sumx4=0
+  for i in x:
+    sumx1=sumx1+i
+    sumx2=sumx2+i**2
+    sumx4=sumx4+i**4
+  return sumx4-16*sumx2+5*sumx1
+
+def Shubert(x):
+  prod=1
+
+  for i in x:
+    sum_eq=0
+    for k in range(5):
+      j=k+1
+      sum_eq=sum_eq+np.cos(((j + 1) * i) + j)
+    prod=prod*sum_eq
+  return prod
+
+def Shubert3(x):
+  soma=0
+
+  for i in x:
+    for k in range(5):
+      j=k+1
+      soma=soma +j * np.sin(((j + 1) * i) + j)
+
+  return soma
+
+
+def XinSheYang(x):
+  m=5
+  b=15
+  sumx_b_2m=0
+  sumx2=0
+  prod_cos2x=1
+  for k in x:
+    sumx2=sumx2+k*k
+    sumx_b_2m=sumx_b_2m+(k/b)**(2*m)
+    prod_cos2x=prod_cos2x*np.cos(k)**2
+  return np.exp(-sumx_b_2m)-2*np.exp(-sumx2)*prod_cos2x
+
+def Zakharov(x):
+  sumx2=0
+  sum_05ix=0
+  i=0
+  for k in x:
+    i=i+1
+    sumx2=sumx2+k**2
+    sum_05ix=sum_05ix+0.5*i*k
+  return sumx2+ (sum_05ix)**2+ (sum_05ix)**4
