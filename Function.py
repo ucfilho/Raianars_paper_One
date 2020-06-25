@@ -17,6 +17,19 @@ def Noisy_Quartic(x):
 # f(x)=0 x=(0,0) [−1.28, 1.28]
 
 
+
+def Schwefel_222(x):
+    sumx=0
+    prodx=0
+    i=0
+    for k in x:
+        i=i+1
+        sumx=sumx+abs(k)
+        prodx=prodx*k
+    sumx=sumx+prodx
+    return sumx
+# f(x)=0 x=(0,0) [−10, 10]
+
 # Funções n-dimensionais
 
 ################################### Funções Unimodais Separáveis
