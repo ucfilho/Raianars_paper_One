@@ -5,11 +5,13 @@ Created on Fri Aug 11 00:01:34 2017
 import numpy as np
 from math import *
    
-### Funções unimodais
-    
-'''Rosembrock Function'''
+
 def Intervalo(dim,fchoice):
-    
+   
+    if(fchoice=='Noisy_Quartic'):
+        MAX=np.repeat(1.28,dim)
+        MIN=np.repeat(-1.28,dim)
+         
     if(fchoice=='Rosenbrock'):
         MAX=np.repeat(10,dim)
         MIN=np.repeat(-10,dim)
