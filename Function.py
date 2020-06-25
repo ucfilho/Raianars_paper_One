@@ -1,6 +1,22 @@
 import numpy as np
 from math import *
 
+
+# Funções self-tuning implementation
+
+################################### 
+
+def Noisy_Quartic(x):
+    sumx4=0
+    i=0
+    for k in x:
+        i=i+1
+        sumx4=sumx4+i*k**4
+    sumx4=sumx4+np.random.random()
+    return sumx4
+# f(x)=0 x=(0,0) [−1.28, 1.28]
+
+
 # Funções n-dimensionais
 
 ################################### Funções Unimodais Separáveis
