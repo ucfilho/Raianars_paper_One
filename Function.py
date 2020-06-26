@@ -25,7 +25,7 @@ def Schwefel_222(x):
     for k in x:
         i=i+1
         sumx=sumx+abs(k)
-        prodx=prodx*k
+        prodx=prodx*abs(k)
     sumx=sumx+prodx
     return sumx
 # f(x)=0 x=(0,0) [−10, 10]
