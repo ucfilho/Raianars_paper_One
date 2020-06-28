@@ -17,7 +17,6 @@ def Noisy_Quartic(x):
 # f(x)=0 x=(0,0) [−1.28, 1.28]
 
 
-
 def Schwefel_222(x):
     sumx=0
     prodx=0
@@ -29,6 +28,16 @@ def Schwefel_222(x):
     sumx=sumx+prodx
     return sumx
 # f(x)=0 x=(0,0) [−10, 10]
+
+def Schwefel_12(x):
+    sum2=0
+    for k in range(len(x)):
+        sum1=0
+        for i in range(k+1):
+            sum1=sum1+x[i]
+        sum2=sum2+sum1**2
+    return sum2
+# f(x)=0 x=(0,0) [−100, 100]
 
 # Funções n-dimensionais
 
