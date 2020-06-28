@@ -15,6 +15,11 @@ def Intervalo(dim,fchoice):
     if(fchoice=='Schwefel_222'):
         MAX=np.repeat(10,dim)
         MIN=np.repeat(-10,dim)
+      
+      
+    if(fchoice=='Schwefel_222'):
+        MAX=np.repeat(100,dim)
+        MIN=np.repeat(-100,dim)
          
     if(fchoice=='Rosenbrock'):
         MAX=np.repeat(10,dim)
