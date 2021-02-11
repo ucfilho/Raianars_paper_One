@@ -8,6 +8,11 @@ from math import *
 
 def Intervalo(dim,fchoice):
    
+    if(fchoice=='Bent_Cigar'):
+        MAX=np.repeat(100,dim)
+        MIN=np.repeat(-100,dim)
+      
+   
     if(fchoice=='Noisy_Quartic'):
         MAX=np.repeat(1.28,dim)
         MIN=np.repeat(-1.28,dim)
