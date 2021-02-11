@@ -6,6 +6,17 @@ from math import *
 
 ################################### 
 
+def Bent_Cigar(x):
+
+  soma=0
+  Num=len(x)
+
+  for i in range(1,Num):
+    soma=soma+x[i]**2
+  soma=soma*10**6+x[0]**2
+  return soma
+
+
 def Noisy_Quartic(x):
     sumx4=0
     i=0
