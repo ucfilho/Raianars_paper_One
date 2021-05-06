@@ -6,14 +6,9 @@ from math import *
 
 ################################### 
 
-def  Michalewicz_revisited(x):
-     sum = 0.0
-     i = 0
-     m =10
-     for xi in x:
-        i = i + 1
-        sum = sum + sin(xi) * (sin(i*xi**2/pi))**(2*m)
-     return sum
+def Michalewicz(x):
+    return -sum([sin(x[i])*sin((i+1)*x[i]**2/pi)**20 for i in range(len(x))])
+#fx=-9.66015 d=10 [0,pi]
 
 def Michalewicz_New(x):
     Num=len(x)
@@ -170,9 +165,6 @@ def Ackley(x):
            exp(1/len(x)*sum([cos(2*np.pi*i) for i in x])) + 20 + exp(1)
  # f(x)=0 x=(0,0) [-32, 32]
 
-def Michalewicz(x):
-    return -sum([sin(x[i])*sin((i)*x[i]**2/pi)**20 for i in range(len(x))])
-#fx=-9.66015 d=10 [0,pi]
 
 # Shubert3 function
 def Shubert3(x):
