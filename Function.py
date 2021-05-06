@@ -6,6 +6,15 @@ from math import *
 
 ################################### 
 
+def  Michalewicz_revisited(x):
+     sum = 0.0
+     i = 0
+     m =10
+     for xi in x:
+        i = i + 1
+        sum = sum + sin(xi) * (sin(i*xi**2/pi))**(2*m)
+     return sum
+
 def Bent_Cigar(x):
 
   soma=0
@@ -15,6 +24,15 @@ def Bent_Cigar(x):
     soma=soma+x[i]**2
   soma=soma*10**6+x[0]**2
   return soma
+# f(x)=0 , x=(0,0,...,0) [-100,100]
+
+def Fake_Rosenbrock(x):
+    fun=0
+    Num=len(x)-1
+    for i in range(Num):
+        fun = 100*(x[i]-x[i-1]**2)**2 + (1-x[i-1])**2
+    return fun 
+# Global Minimum: 0 , domain=[-30,30]
 
 
 def Noisy_Quartic(x):
