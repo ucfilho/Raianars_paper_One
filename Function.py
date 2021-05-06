@@ -15,6 +15,14 @@ def  Michalewicz_revisited(x):
         sum = sum + sin(xi) * (sin(i*xi**2/pi))**(2*m)
      return sum
 
+def Michalewicz_New(x):
+    Num=len(x)
+    S=0
+    for i in range(Num):
+        S=S+np.sin(x[i])*np.sin((i+1)*x[i]**2/np.pi)**20 
+    return S
+#fx=-9.66015 d=10 [0,pi]
+
 def Bent_Cigar(x):
 
   soma=0
