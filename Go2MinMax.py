@@ -181,8 +181,28 @@ def Intervalo(dim,fchoice):
     if(fchoice=='XinSheYang'):
         pi2=2*np.pi
         MAX=np.repeat(pi2,dim) 
-        MIN=np.repeat(-pi2,dim)     
+        MIN=np.repeat(-pi2,dim)
+         
+    if(fchoice=='PenaltyOne'):
+        pi2=2*np.pi
+        MAX=np.repeat(50,dim) 
+        MIN=np.repeat(-50,dim) 
+        
+    if(fchoice=='PenaltyTwo'):
+        pi2=2*np.pi
+        MAX=np.repeat(50,dim) 
+        MIN=np.repeat(-50,dim) 
+        
+    if(fchoice=='Kowalik'):
+        pi2=2*np.pi
+        MAX=np.repeat(5,dim) 
+        MIN=np.repeat(-5,dim) 
+        
+    if(fchoice=='Shekel'):
+        pi2=2*np.pi
+        MAX=np.repeat(65.536,dim) 
+        MIN=np.repeat(-65.536,dim)
 
-
+    
     return MIN,MAX  #  MIN,MAX=Go2MinMax.Intervalo(dim,fchoice)
 
