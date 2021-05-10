@@ -6,6 +6,78 @@ from math import *
 
 ################################### 
 
+def Shekel(x):
+    a=np.array([[-32,-16,0,16,32,-32,-16,0,16,32,-32,-16,0,16,32,-32,-16,0,16,32,-32,-16,0,16,32],
+                [-32,-32,-32,-32,-32,-16,-16,-16,-16,-16,0,0,0,0,0,16,16,16,16,16,32,32,32,32,32]])  
+    sumj = 0
+    for j in range(2):
+      sumi = 0
+      for i in range(len(x)):
+        sumi = sumi + (x[i]+a[j,i])**6
+      sumj = sumj + 1.0 / (j+ sumi)
+    fun =1.0 / (1/500.0+ sumj)  
+    return fun
+    # Shekel's Foxholes Function 
+    # Range of initial points: -65.536 <= xj <= 65.536 , j=1,2
+    # Global minima: (x1,x2)=(-31.97833,-31.97833)
+    # f(x1,x2)=0.998003837794449325873406851315 obs dim =30 optimum close to zero..
+    
+def PenaltyOne(x):
+    n = len(x); a = 10 ; k = 100 ; m =4; pi = np.pi;
+    sumy=0
+    sumu=0
+    
+    for i in range((n-1)):
+        yi = 1 + 1.0/4*(x[i]+1)
+        yip = 1 + 1.0/4*(x[i+1]+1)
+        sumy=sumy+(yi-1)**2*(1+10*(np.sin(pi*yip))**2)
+        if( x[i] > a):
+            sumu = sumu + k*(x[i]-a)**m
+        elif( x[i] < -a):
+            sumu = sumu + k*(-x[i]-a)**m
+        else:
+            sumu = sumu # it could be done without put this case
+        
+    y0 = 1 + 1.0/4*(x[0]+1)
+    yn = 1 + 1.0/4*(x[n-1]+1)
+    fun = pi/n*(10*(np.sin(pi*y0))**2 + sumy + (yn-1)**2 ) + sumu 
+    return fun
+
+def PenaltyTwo(x):
+    n = len(x); a = 5 ; k = 100 ; m =4; pi = np.pi;
+    sumx=0
+    sumu=0
+    
+    for i in range((n-1)):
+        sumx=sumx+   (x[i]-1)**2*(1+(np.sin(3*pi*x[i+1]))**2)
+        if( x[i] > a):
+            sumu = sumu + k*(x[i]-a)**m
+        elif( x[i] < -a):
+            sumu = sumu + k*(-x[i]-a)**m
+        else:
+            sumu = sumu # it could be done without put this case
+        
+    fun = 0.1*( (np.sin(3*pi*x[0]))**2 + sumx + (x[n-1]-1)**2*(1+(np.sin(2*pi*x[n-1]))**2) ) + sumu 
+    return fun
+# f(x)=0 x=(0,0) [−1.28, 1.28]
+
+def Kowalik(x):
+    n = 11; 
+    a= [0.1957,0.1947,0.1735,0.1600,   0.0844,0.0627,0.0456,0.0342,    0.0323,0.0235,0.0246]
+    b=[0.25, 0.5, 1,2,4,6,8,10,12,14,16]
+    sumx=0
+    
+    for i in range(n):
+        bi = 1/b[i]
+        upfrac = x[0]*(bi**2+bi*x[1])
+        downfrac = bi**2+bi*x[2]+x[3]
+        sumx=sumx+ (a[i] -upfrac/downfrac)**2
+ 
+    fun = sumx 
+    return fun
+# f(x)=0 x=(0,0) [−1.28, 1.28]
+
+
 def Michalewicz(x):
     return -sum([sin(x[i])*sin((i+1)*x[i]**2/pi)**20 for i in range(len(x))])
 #fx=-9.66015 d=10 [0,pi]
@@ -101,10 +173,6 @@ def sum_squares_function(x): #gráfico parecido c a espera
     return sum([(i+1)*x[i]**2 for i in range(len(x))])
 # f(x)=0 x=(0,0) , d=[-10,10]
 
-def dixon_price_function(x): # parece sum_of_different_powers_function
-    return (x[0] - 1)**2 + sum([(i+1)*(2*x[i]**2 - x[i-1])**2
-                                for i in range(1, len(x))])
-# f(x)=0 xi=2^(-(2^i - 2)/2^i   d= [-10,10]
 
 # Zakharov Function
 def Zakharov(x):
@@ -299,5 +367,23 @@ def Shubert(x):
 #  Not Convex it is usually evaluated  xi =[(-10,10),..,(-10,10)]
 
 
+======================================
 
+fixed dimention
 
+def Easom(x):
+    return -cos(x[0])*cos(x[1])*exp(-(x[0] - pi)**2 - (x[1] - pi)**2)
+# f(x)=-1 x=(pi,pi) [-100,100]
+
+def Booth(x):
+    return (x[0] + 2*x[1] - 7)**2 + (2*x[0] + x[1] - 5)**2
+# f(x)=0 x=(1,3) [-10,10]
+    
+def Beale(x):
+    return (1.5 - x[0] + x[0]*x[1])**2 + (2.25 - x[0] + x[0]*x[1]**2)**2 + \
+           (2.625 - x[0] + x[0]*x[1]**3)**2
+
+def dixon_price_function(x): # parece sum_of_different_powers_function
+    return (x[0] - 1)**2 + sum([(i+1)*(2*x[i]**2 - x[i-1])**2
+                                for i in range(1, len(x))])
+# f(x)=0 xi=2^(-(2^i - 2)/2^i   d= [-10,10]
