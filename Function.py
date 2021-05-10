@@ -366,6 +366,8 @@ def Shubert(x):
 #  Global minimum The function has 18 global minima  equal -186.7309
 #  Not Convex it is usually evaluated  xi =[(-10,10),..,(-10,10)]
 
+def Drop_wave(x):
+    return -(1 + cos(12*sqrt(sphere_function(x))))/(0.5*sphere_function(x) + 2)
 
 ======================================
 
@@ -387,3 +389,17 @@ def dixon_price_function(x): # parece sum_of_different_powers_function
     return (x[0] - 1)**2 + sum([(i+1)*(2*x[i]**2 - x[i-1])**2
                                 for i in range(1, len(x))])
 # f(x)=0 xi=2^(-(2^i - 2)/2^i   d= [-10,10]
+
+def Six_hump_camel(x): 
+    return (4 - 2.1*x[0]**2 + (x[0]**4)/3)*x[0]**2 + x[0]*x[1]\
+           + (-4 + 4*x[1]**2)*x[1]**2
+#fx=-1.0316 ; x=(+-0.0898,+-0.7126) x1 ∈ [-3, 3], x2 ∈ [-2, 2]. 
+
+def Cross_in_tray(x):
+    return round(-0.0001*(abs(sin(x[0])*sin(x[1])*exp(abs(100 -
+                            sqrt(sum([i**2 for i in x]))/pi))) + 1)**0.1, 7)
+#fx--2.06261 x=( +/-1.3491.+/-1.3491) [-10,10]
+
+def Bukin(x):
+    return 100*sqrt(abs(x[1]-0.01*x[0]**2)) + 0.01*abs(x[0] + 10)
+# f(X)=0, x=(-10,1)    x_1∈[-15.-5]  x2 ∈ [-3, 3]. 
