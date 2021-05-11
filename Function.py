@@ -367,11 +367,11 @@ def Shubert(x):
 #  Not Convex it is usually evaluated  xi =[(-10,10),..,(-10,10)]
 
 def Drop_wave(x):
-    return -(1 + cos(12*sqrt(sphere_function(x))))/(0.5*sphere_function(x) + 2)
+    return -(1 + cos(12*sqrt(Sphere(x))))/(0.5*Sphere(x) + 2)
 
 #======================================
 
-fixed dimention
+#fixed dimention
 
 def Easom(x):
     return -cos(x[0])*cos(x[1])*exp(-(x[0] - pi)**2 - (x[1] - pi)**2)
